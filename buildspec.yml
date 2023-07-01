@@ -1,0 +1,19 @@
+version: 0.2
+
+phase:
+  install:
+    commands:
+     -echo installing NGINX
+     -sudo apt update
+     -sudo apt-get install nginx -y
+  build:
+    command:
+     -echo Build started on 'date'
+     -cp index.html /var/www/html/
+  post_build:
+     command:
+       -echo Configuring NGINX
+       
+artifacts:
+  files:
+   - /var/www/html/index.html
