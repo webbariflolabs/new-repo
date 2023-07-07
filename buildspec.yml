@@ -1,19 +1,27 @@
 version: 0.2
 
-phase:
-  install:
+# environment_variables:
+  # plaintext:
+  #   DJANGO_SETTINGS_MODULE: config.settings.test
+  #   SECRET_KEY: nosecret
+  #   DATABASE_DEFAULT_URL: sqlite:///db1.sqlite3
+  #   DATABASE_STREAMDATA_URL: sqlite:///db2.sqlite3
+  #   STREAM_INCOMING_PRIVATE_KEY: changeme
+  #   STREAM_INCOMING_PUBLIC_KEY: changeme
+  #   GOOGLE_API_KEY: changeme
+  #   OPBEAT_ENABLED: False
+
+phases:
+  pre_build:
     commands:
-     -echo installing NGINX
-     -sudo apt update
-     -sudo apt-get install nginx -y
+      - echo Prebuild ops
+      - pip3 install -r requirements.txt
   build:
-    command:
-     -echo Build started on 'date'
-     -cp index.html /var/www/html/
+    commands:
+      - echo Building the application 
   post_build:
-     command:
-       -echo Configuring NGINX
-       
+    commands:
+      - echo Build completed on `date`
 artifacts:
   files:
-   - /var/www/html/index.html
+    - '**/*'
