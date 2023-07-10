@@ -2,12 +2,12 @@
 Description=gunicorn daemon
 Requires=gunicorn.socket
 After=network.target
+
 [Service]
 User=ubuntu
 Group=www-data
 WorkingDirectory=/home/ubuntu/new-repo
-ExecStart=/home/ubuntu/project/env/bin/gunicorn \--access-logfile - \ --workers 3 \ --bind unix:/run/gunicorn.sock \ project.wsgi:application
+ExecStart=/home/ubuntu/new-repo/env/bin/gunicorn --access-logfile - --workers 3 --bind unix:/run/gunicorn.sock project.wsgi:application
 
-       
 [Install]
 WantedBy=multi-user.target
