@@ -17,6 +17,6 @@ sudo service nginx restart
 # Check the status
 #systemctl status gunicorn
 # Restart:
-sudo systemctl restart gunicorn
-gunicorn --bind 0.0.0.0:8000 project.wsgi:application
-sudo systemctl restart nginx
+#sudo systemctl restart gunicorn
+#gunicorn --bind 0.0.0.0:8000 project.wsgi:application
+#sudo systemctl restart nginx
