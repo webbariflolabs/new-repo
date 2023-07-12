@@ -1,8 +1,17 @@
 #!/usr/bin/env bash
 
-sudo apt install -y python3-pip
-sudo apt install -y virtualenv
-sudo apt install -y nginx
-sudo apt install -y gunicorn
+# Update package lists
+sudo apt update
+
+# Install necessary packages
+sudo apt install -y python3-pip virtualenv nginx gunicorn
+
+# Configure any pending package installations
 sudo dpkg --configure -a
-sudo apt-get install -f
+
+# Resolve any dependency issues
+sudo apt-get install -f -y
+
+# Exit the script with a success message
+echo "Instance OS dependencies installation completed successfully."
+exit 0
