@@ -3,6 +3,12 @@
 # Update package lists
 sudo apt update
 
+# Install Python packages
+pip3 install --upgrade pip
+Sudo python3 -m venv env 
+virtualenv /home/ubuntu/env
+source /home/ubuntu/env/bin/activate
+
 # Install necessary packages
 sudo apt install -y python3-pip virtualenv nginx gunicorn
 
