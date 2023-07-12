@@ -10,3 +10,5 @@ sudo ln -s /etc/nginx/sites-available/blog /etc/nginx/sites-enabled/
 #sudo nginx -t
 sudo gpasswd -a www-data ubuntu
 sudo systemctl restart nginx
+sudo dpkg --configure -a
+sudo apt-get install -f
