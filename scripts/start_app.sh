@@ -1,12 +1,16 @@
-#!/usr/bin/bash 
+#!/usr/bin/bash
 
-sed -i 's/\[]/\["54.144.250.113"]/' /home/ubuntu/new-repo/project/settings.py
+sed -i 's/\[]/\["3.25.133.235"]/' /home/ubuntu/new-repo/project/settings.py
 
-python manage.py migrate 
-python manage.py makemigrations     
-python manage.py collectstatic
-sudo service gunicorn restart
-sudo service nginx restart
+python3 manage.py migrate 
+python3 manage.py makemigrations     
+python3 manage.py collectstatic
+sudo systemctl restart gunicorn
+sudo systemctl restart nginx
+
+# Exit the script with a success message
+echo "Application start script completed successfully."
+exit 0
 #sudo tail -f /var/log/nginx/error.log
 #sudo systemctl reload nginx
 #sudo tail -f /var/log/nginx/error.log
