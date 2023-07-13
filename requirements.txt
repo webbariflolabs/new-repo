@@ -19,4 +19,5 @@ tzdata==2023.3
 tzlocal==5.0.1
 urllib3==2.0.3
 gunicorn==20.1.0
+supervisor
 whitenoise==6.4.0
