@@ -5,8 +5,8 @@ sed -i 's/\[]/\["3.25.133.235"]/' /home/ubuntu/new-repo/project/settings.py
 python3 manage.py migrate 
 python3 manage.py makemigrations     
 python3 manage.py collectstatic
-sudo systemctl restart gunicorn
 sudo systemctl restart nginx
+sudo systemctl restart gunicorn
 
 # Exit the script with a success message
 echo "Application start script completed successfully."
