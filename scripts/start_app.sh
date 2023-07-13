@@ -7,6 +7,8 @@ python3 manage.py makemigrations
 python3 manage.py collectstatic
 sudo systemctl restart nginx
 sudo systemctl restart gunicorn
+sudo systemctl restart gunicorn
+gunicorn --bind 0.0.0.0:8000 project.wsgi:application
 
 # Exit the script with a success message
 echo "Application start script completed successfully."
