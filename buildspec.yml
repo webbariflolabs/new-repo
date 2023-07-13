@@ -15,6 +15,10 @@ phases:
   pre_build:
     commands:
       - echo Prebuild ops
+      - pip install --upgrade pip
+      - sudo python3 -m venv env 
+      - virtualenv /home/ubuntu/env
+      - source /home/ubuntu/env/bin/activate
       - pip3 install -r requirements.txt
   build:
     commands:
