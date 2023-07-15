@@ -6,6 +6,6 @@ sudo systemctl enable gunicorn.service
 sudo systemctl start gunicorn.service
 
 # Start Gunicorn server
-gunicorn project.wsgi:application --bind 127.0.0.1:8000 --workers 3 --log-level=info --daemon
+gunicorn --bind 0.0.0.0:8000 project.wsgi:application
 
 exit 0
