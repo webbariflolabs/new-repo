@@ -7,7 +7,7 @@ sudo apt-get install -y supervisor
 # Create Supervisor configuration file for Django application
 sudo tee /etc/supervisor/conf.d/gunicorn.conf > /dev/null << EOL
 [program:gunicorn]
-command=/home/ubuntu/env/bin/gunicorn --workers 3 --bind unix:/home/ubuntu/new-repo/project/app.sock project.wsgi:application
+command=/home/ubuntu/env/bin/gunicorn --workers 3 --bind unix:/home/ubuntu/new-repo/app.sock project.wsgi:application
 directory=/home/ubuntu/new-repo
 user=ubuntu
 autostart=true
