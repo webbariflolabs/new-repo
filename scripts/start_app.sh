@@ -9,3 +9,10 @@ sudo systemctl restart nginx
 sudo systemctl restart gunicorn
 gunicorn --bind 0.0.0.0:8000 project.wsgi:application
 
+# Reread and update Supervisor configurations
+sudo supervisorctl reread
+sudo supervisorctl update
+
+# Restart Nginx and Supervisor
+sudo systemctl restart nginx
+sudo systemctl restart supervisor
