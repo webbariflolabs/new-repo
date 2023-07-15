@@ -10,7 +10,7 @@ virtualenv /home/ubuntu/env
 source /home/ubuntu/env/bin/activate
 
 # Install necessary packages
-sudo apt install -y python3-pip virtualenv nginx gunicorn
+sudo apt install -y python3-pip virtualenv nginx gunicorn supervisor
 
 # Configure any pending package installations
 sudo dpkg --configure -a
