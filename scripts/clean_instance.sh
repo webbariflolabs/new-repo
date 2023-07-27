@@ -1,2 +1,3 @@
-#!/usr/bin/env bash
+#!/usr/bin/bash
+#
 sudo rm -rf /home/ubuntu/new-repo/*
