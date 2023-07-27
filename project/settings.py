@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'storages',
     'rest_framework',
     'corsheaders',
     'api',
@@ -83,8 +84,12 @@ WSGI_APPLICATION = 'project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME':'database1',
+        'HOST':'database1.ctonwtygoojm.ap-southeast-2.rds.amazonaws.com',
+        'USER':'postgres',
+        'PASSWORD':'bariflo123',
+        'PORT': 5432, #default port number for postgresql
     }
 }
 
@@ -123,15 +128,28 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = '/home/ubuntu/static/'
+AWS_ACCESS_KEY_ID = 'AKIASJFGGSZMBQMZGWP3'
+AWS_SECRET_ACCESS_KEY= '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'
+AWS_STORAGE_BUCKET_NAME= 'employeemanagementssystem'
+AWS_S3_CUSTOM_DOMAIN_NAME= f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+AWS_DEFAULT_ACL= 'public-read'
+AWS_S3_OBJECT_PARAMETERS= {'CacheControl': 'max-age=86400'}
+AWS_LOCATION= 'static' 
+AWS_QUERYSTRING_AUTH= False
+AWS_HEADERS= {
+         'Access-Control-Allow-Origin': '*',
+        }
+
+DEFAULT_FILE_STORAGE='storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE='storages.backends.s3boto3.S3StaticStorage'
+
+STATIC_URL=f'https://{AWS_S3_CUSTOM_DOMAIN_NAME}/static/'
+MEDIA_URL=f'https://{AWS_S3_CUSTOM_DOMAIN_NAME}/media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-MEDIA_ROOT=os.path.join(BASE_DIR,'media')
-MEDIA_URL='/media/'
 
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -148,3 +166,7 @@ EMAIL_HOST_USER = 'gourabmohapatra789@gmail.com'  # Your email address
 EMAIL_HOST_PASSWORD = PASSWORD  # Your email password
 EMAIL_USE_TLS = True  # Use TLS encryption for secure connection
 DEFAULT_FROM_EMAIL = 'gourabmohapatra789@gmail.com'  # Default email address for sending emails
+
+
+
+
